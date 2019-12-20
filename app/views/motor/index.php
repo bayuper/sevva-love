@@ -59,7 +59,7 @@
                     <p class="card-text"><?= "Type   : ".$mtr['nama_tipe']?></p>
                     <p class="card-text"><?= "Brand  : ".$mtr['nama_brand']?></p>
                     <hr />
-                    <a href="#" class="btn btn-primary" style="width: 100px;">Details</a>
+                    <a href="<?=BASEURL?>/motor/detail/<?=$mtr['id_motor']?>" class="btn btn-primary" style="width: 100px;">Details</a>
                     <a href="#" class="btn btn-warning" style="width: 100px;">Book</a>
                 </div>
             </div>
