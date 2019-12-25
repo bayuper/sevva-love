@@ -47,8 +47,8 @@ class Motor_model{
     public function tambahDataMotor($data){
             
         $this->db->query("INSERT INTO MOTOR (id_motor, id_client, nama, id_brand, id_tipe, id_kota, 
-        harga,foto_motor,foto_bpkb,foto_stnk) VALUES 
-        (:id_motor, :id_client, :nama, :id_brand, :id_tipe, :id_kota, :harga, :foto_motor, :foto_bpkb, :foto_stnk)");
+        harga,foto_motor,foto_bpkb,foto_stnk,description) VALUES 
+        (:id_motor, :id_client, :nama, :id_brand, :id_tipe, :id_kota, :harga, :foto_motor, :foto_bpkb, :foto_stnk , :description)");
 
         $this->db->bind('id_motor',$data['id']);
         $this->db->bind('id_client',$data['id_client']);
@@ -60,6 +60,7 @@ class Motor_model{
         $this->db->bind('foto_motor',$data['foto_motor']);
         $this->db->bind('foto_bpkb',$data['foto_bpkb']);
         $this->db->bind('foto_stnk',$data['foto_stnk']);
+        $this->db->bind('description',$data['desc']);
 
         $this->db->execute();
         return $this->db->rowCount();
