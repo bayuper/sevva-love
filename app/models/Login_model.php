@@ -7,7 +7,7 @@ class Login_model{
     }
 
     public function getUser($email){
-        $this->db->query('SELECT * FROM CLIENT WHERE email = :email');
+        $this->db->query('SELECT * FROM CLIENT join lokasi on lokasi.id_kota = client.id_kota WHERE email = :email');
         $this->db->bind(':email',$email);
         $result = $this->db->single();
         return $result;
