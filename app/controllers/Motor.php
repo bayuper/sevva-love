@@ -29,6 +29,7 @@
 
         public function cariData(){
                 session_start();
+                if(isset($_SESSION['email'])){
                 $data =  $this->model('Login_model')->getUser($_SESSION['email_user']);
                 $data['title'] = 'Motorbikes';
                 $data['locate'] = $this->model('Client_model')->getLokasi();
@@ -39,7 +40,18 @@
                 $this->view('templates/header2', $data);
                 $this->view('motor/index', $data);
                 $this->view('templates/footer');
+        }else{
+            $data['title'] = 'Motorbikes';
+            $data['locate'] = $this->model('Client_model')->getLokasi();
+            $data['brand']= $this->model('Motor_model')->getBrand();
+            $data['tipe']= $this->model('Motor_model')->getTipe();
+            $data['motor'] = $this->model('Motor_model')->getFindMotor($_POST);
+            //$data['motor'] = $this->model('Motor_model')->getAllMotor();
+            $this->view('templates/header', $data);
+            $this->view('motor/index', $data);
+            $this->view('templates/footer');
         }
+    }
 
         public function pageTambahMotor(){
             session_start();
@@ -100,6 +112,7 @@
             $data =  $this->model('Login_model')->getUser($_SESSION['email_user']);
             $data['title'] = "Detai Motor";
             $data['motor'] = $this->model('Motor_model')->getMotorById($id);
+            $data['client'] = $this->model('Motor_model')->getNamaClientById($id);
             $this->view('templates/header2', $data);
             $this->view('motor/detail', $data);
             $this->view('templates/footer');

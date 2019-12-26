@@ -72,5 +72,11 @@ class Motor_model{
         return $this->db->single();
 
     }
+
+    public function getNamaClientById($id){
+        $this->db->query("select c.nama, m.id_client from motor m join client c on c.id_client = m.id_client where m.id_motor = :id");
+        $this->db->bind('id',$id);
+        return $this->db->single();
+    }
 }
 ?>
