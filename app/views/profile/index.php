@@ -11,7 +11,7 @@
             <div class="row no-gutters">
                 <div class="col-md-4 mt-5">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkVwgO2BQyt8C5fk2VcxWRKyiLS31NaXwK_gtjHJbdy-Nsr687" class="card-img" style="max-width:300px;" alt="...">
-                    <button type="submit" class="btn btn-danger center col-md-12 mt-4" style="fix-position">Sign Out</button>
+                    <a href="<?=BASEURL?>/login/logout"><button type="submit" class="btn btn-danger center col-md-12 mt-4" style="fix-position">Sign Out</button></a>
                     <button type="submit" class="btn btn-warning center col-md-12 mt-2 mb-5">Delete Account</button>
                 </div>
                 <div class="col-md-8">
@@ -37,7 +37,7 @@
                                 <div class="form-group row">
                                     <!-- <label for="full_name" class="col-md-4 col-form-label text-md-right">User ID</label> -->
                                     <div class="col-md-6">
-                                        <input type="text" id="full_name" class="form-control" name="id" value="<?= $data['id_client'] ?>" readonly>
+                                        <input type="hidden" id="full_name" class="form-control" name="id" value="<?= $data['id_client'] ?>" readonly>
                                     </div>
                                 </div>
                             
@@ -55,12 +55,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Password</label>
-                                    <div class="col-md-6">
-                                        <input type="password" id="email_address" class="form-control" name="password" value="<?=md5($data['password'])?>">
-                                    </div>
-                                </div>
+                               
 
                                 <div class="form-group row">
                                     <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
@@ -77,15 +72,9 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
+                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">Location</label>
                                     <div class="col-md-6">
-                                        <select class="form-control" id="exampleFormControlSelect1" name="city">
-                                            <?php foreach($data['locate'] as $row): ?> 
-                                            <option value="<?= $row['id_kota']?>"> 
-                                            <?= $row['nama_kota']; ?> 
-                                            </option>
-                                            <?php endforeach;?>
-                                        </select>
+                                        <input type="text" id="user_name" class="form-control" name="address" value="<?=$data['nama_kota']?>">
                                     </div>
                                 </div>
                                
@@ -102,7 +91,7 @@
                                 <div class="form-group row">
                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right">NIK</label>
                                     <div class="col-md-6">
-                                        <input type="number" id="permanent_address" class="form-control" name="nik">
+                                        <input type="number" id="permanent_address" class="form-control" name="nik" value="<?=$data['nik']?>">
                                     </div>
                                 </div>
                                 </div>

@@ -36,7 +36,7 @@
                     <hr />
 
                     <div class="designed-by">
-                        <h5>Uploaded by <?=$data['client']['nama']?></h5>
+                        <h5>Uploaded by <a href="<?=BASEURL?>/profile/clientprofile/<?=$data['client']['id_client']?>"><?=$data['client']['nama']?></a></h5>
                         <div class="row">
                         </div>
                     </div>

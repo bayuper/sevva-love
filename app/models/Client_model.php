@@ -20,8 +20,6 @@ class Client_model{
     public function getNewIdClient(){
         $data = $this->db->query('SELECT max(id_client) as max FROM client');
         return $this->db->resultSet();
-
-
     }
 
    
@@ -45,6 +43,13 @@ class Client_model{
 
         $this->db->execute();
         return $this->db->rowCount();
+    }
+
+    public function getClientProfile($id){
+        $this->db->query("select c.* , m.nama as 'nama_motor', m.harga, m.id_brand, m.id_kota, m.id_tipe, l.nama_kota, b.nama_brand, t.nama_tipe from client c join motor m on m.id_client = c.id_client join brand b on m.id_brand = b.id_brand join tipe t on m.id_tipe = t.id_tipe join lokasi l on m.id_kota = l.id_kota where m.id_client = :id");
+        $this->db->bind('id',$id);
+        return $this->db->single();
+
     }
 }
 
