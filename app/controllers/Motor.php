@@ -69,11 +69,11 @@
         public function tambah()
         {
             //echo $_POST['foto_motor'];
-            var_dump($_FILES['foto_motor']);
+            //var_dump($_FILES['foto_motor']);
             if($this->model('Motor_model')->tambahDataMotor($_POST) > 0){
                
                 echo 'cek';
-                //header('Location: '.BASEURL.'/motor');
+                header('Location: '.BASEURL.'/motor');
             }else{
                 echo "Tambah data gagal";
             }

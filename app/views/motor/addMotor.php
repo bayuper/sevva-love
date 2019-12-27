@@ -23,14 +23,14 @@
                                 <div class="form-group row">
                                     <!-- <label for="full_name" class="col-md-4 col-form-label text-md-right">User ID</label> -->
                                     <div class="col-md-6">
-                                        <input type="text" id="full_name" class="form-control" name="id" value="<?= $id ?>" readonly>
+                                        <input type="hidden" id="full_name" class="form-control" name="id" value="<?= $id ?>" readonly>
                                     </div>
                                 </div>
                             
                                 <div class="form-group row">
                                     <!-- <label for="full_name" class="col-md-4 col-form-label text-md-right">User ID</label> -->
                                     <div class="col-md-6">
-                                        <input type="text" id="full_name" class="form-control" name="id_client" value="<?= $data['id_client'] ?>" readonly>
+                                        <input type="hidden" id="full_name" class="form-control" name="id_client" value="<?= $data['id_client'] ?>" readonly>
                                     </div>
                                 </div>
 

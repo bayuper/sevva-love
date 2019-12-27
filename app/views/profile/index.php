@@ -11,7 +11,7 @@
             <div class="row no-gutters">
                 <div class="col-md-4 mt-5">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkVwgO2BQyt8C5fk2VcxWRKyiLS31NaXwK_gtjHJbdy-Nsr687" class="card-img" style="max-width:300px;" alt="...">
-                    <a href="<?=BASEURL?>/login/logout"><button type="submit" class="btn btn-danger center col-md-12 mt-4" style="fix-position">Sign Out</button></a>
+                    <a href="<?=BASEURL?>/login/logout"><button type="submit" class="btn btn-danger center col-md-12 mt-4">Sign Out</button></a>
                     <button type="submit" class="btn btn-warning center col-md-12 mt-2 mb-5">Delete Account</button>
                 </div>
                 <div class="col-md-8">

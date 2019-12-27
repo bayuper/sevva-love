@@ -50,7 +50,7 @@
         <div class="card-columns ml-5">
         <?php foreach($data['motor'] as $mtr): ?>
                 <div class="card" style="width: 18rem;">
-                    <!-- <img src="" class="card-img-top imgmotor" alt="..."> -->
+                    <!-- <img ="" class="card-img-top imgmotor" alt="..."> -->
                     <div class="card-body shadow">
                     <h5 class="card-title"><?= $mtr['nama']?></h5>
                     <hr />
