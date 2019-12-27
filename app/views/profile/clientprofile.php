@@ -10,7 +10,7 @@
         <div class="card mt-5 mb-5 mx-auto" style="max-width: 900px;">
             <div class="row no-gutters">
                 <div class="col-md-4 mt-5">
-                    <img src="img/aan - Copy.jpg" class="card-img" style="max-width:300px;" alt="...">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkVwgO2BQyt8C5fk2VcxWRKyiLS31NaXwK_gtjHJbdy-Nsr687" class="card-img" style="max-width:300px;" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -25,7 +25,7 @@
                         <div class="tab-content p-3" id="myTabContent">
                             <div class="tab-pane fade show active product-review" id="profile" role="tabpanel" aria-labelledby="description-tab">
                                 <p class="card-text">
-                                    <small class="">Nama : <?=$data['client']['nama']?></small>
+                                    <small class="">Name : <?=$data['client']['nama']?></small>
                                 </p>
                                 <p class="card-text">
                                     <small class="">Address : <?=$data['client']['address']?></small>
@@ -45,12 +45,12 @@
                 </div>
             </div>
         </div>
-        <h2 class="text-center">Motore Bayu</h2>
+        <h2 class="text-center"><?=$data['client']['nama']."'s"?> Motors</h2>
         <br><br>
         <div class="card-columns ml-5">
         <?php foreach($data['motor'] as $mtr): ?>
                 <div class="card" style="width: 18rem;">
-                    <img src="" class="card-img-top imgmotor" alt="...">
+                    <!-- <img src="" class="card-img-top imgmotor" alt="..."> -->
                     <div class="card-body shadow">
                     <h5 class="card-title"><?= $mtr['nama']?></h5>
                     <hr />

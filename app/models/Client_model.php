@@ -51,6 +51,12 @@ class Client_model{
         return $this->db->single();
 
     }
+
+    public function getClientProfileMotor($id){
+        $this->db->query("select M.id_motor,M.nama,M.harga,M.id_client,L.nama_kota,T.nama_tipe,B.nama_brand from motor M join brand B on M.id_brand = B.id_brand JOIN lokasi L on M.id_kota = L.id_kota join tipe T on M.id_tipe = T.id_tipe where M.id_client = :id");
+        $this->db->bind('id',$id);
+        return $this->db->resultSet();
+    }
 }
 
 ?>

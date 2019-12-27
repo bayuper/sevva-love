@@ -122,8 +122,7 @@
                                                 <td>Otto</td>
                                                 <td>
                                                     <a href="#" class="btn btn-xs btn-success">Update</a>
-                                                    <a href="#" class="btn btn-xs btn-danger" onClick="return confirm('Apakah anda yakin akan
-                                                    menghapus data ini?')">Delete</a>
+                                                    <a href="#" class="btn btn-xs btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -148,8 +147,7 @@
                                                 <td>Otto</td>
                                                 <td>
                                                     <a href="#" class="btn btn-xs btn-success">Update</a>
-                                                    <a href="#" class="btn btn-xs btn-danger" onClick="return confirm('Apakah anda yakin akan
-                                                    menghapus data ini?')">Delete</a>
+                                                    <a href="#" class="btn btn-xs btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -162,3 +160,4 @@
             </div>
         </div>
     </div>
+</div>
