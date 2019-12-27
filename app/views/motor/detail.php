@@ -59,10 +59,8 @@
                     </ul>
                     <div class="tab-content p-3" id="myTabContent">
                         <div class="tab-pane fade show active product-review" id="description" role="tabpanel" aria-labelledby="description-tab">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec felis metus. Vivamus eu urna tempor, pretium erat quis, volutpat eros. Cras consectetur dolor at venenatis feugiat. Fusce nunc risus, finibus eget augue ac, ornare
-                                gravida turpis. Morbi consequat, nisi sit amet viverra feugiat, lacus mauris ornare erat, at pharetra odio dolor id elit. Pellentesque eu aliquet ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec felis metus. Vivamus eu urna tempor, pretium erat quis, volutpat eros. Cras consectetur dolor at venenatis feugiat. Fusce nunc risus, finibus eget augue ac, ornare
-                                gravida turpis. Morbi consequat, nisi sit amet viverra feugiat, lacus mauris ornare erat, at pharetra odio dolor id elit. Pellentesque eu aliquet ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p><?=$data['motor']['description']?></p>
+                            
                         </div>
                     </div>
                 </div>
