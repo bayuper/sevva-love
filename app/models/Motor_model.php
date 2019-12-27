@@ -79,5 +79,11 @@ class Motor_model{
         return $this->db->single();
     }
 
+    public function getNamaMotorById($id){
+        $this->db->query("select * from motor where id_client = :id");
+        $this->db->bind('id',$id);
+        return $this->db->resultSet();
+    }
+
 }
 ?>
