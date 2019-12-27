@@ -45,6 +45,24 @@ class Client_model{
         return $this->db->rowCount();
     }
 
+    public function updateDataClient($data){
+        $this->db->query("UPDATE client SET nama = :nama, email= :email, phone = :phone, 
+        address = :address, id_kota = :id_kota , nik = :nik WHERE id_client = :id_client");
+
+        $this->db->bind('nama',$data['name']);
+        $this->db->bind('email',$data['email-address']);
+        $this->db->bind('phone',$data['phone']);
+        $this->db->bind('address',$data['address']);
+        $this->db->bind('id_kota',$data['city']);
+        $this->db->bind('nik',$data['nik']);
+        $this->db->bind('id_client',$data['id']);
+
+
+        $this->db->execute();
+        return $this->db->rowCount();
+
+    }
+
     public function getClientProfile($id){
         $this->db->query("select c.* , m.nama as 'nama_motor', m.harga, m.id_brand, m.id_kota, m.id_tipe, l.nama_kota, b.nama_brand, t.nama_tipe from client c join motor m on m.id_client = c.id_client join brand b on m.id_brand = b.id_brand join tipe t on m.id_tipe = t.id_tipe join lokasi l on m.id_kota = l.id_kota where m.id_client = :id");
         $this->db->bind('id',$id);
