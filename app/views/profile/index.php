@@ -188,14 +188,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php foreach($data['motor'] as $mtr => $value):?> 
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td></td>
+                                                <th scope="row"><?=++$mtr?></th>
+                                                <td><?=$value['nama']?></td>
                                                 <td>
                                                     <a href="#" class="btn btn-xs btn-success">Update</a>
                                                     <a href="#" class="btn btn-xs btn-danger">Delete</a>
-                                                </td>
+                                                </td> 
                                             </tr>
+                                        <?php endforeach;?>   
                                         </tbody>
                                     </table>
                                 </div>

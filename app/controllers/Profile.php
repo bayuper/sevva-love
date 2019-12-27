@@ -1,11 +1,12 @@
 <?php 
 
 class Profile extends Controller{
-    public function index(){
+    public function index($id){
         session_start();
         $data = $this->model('Login_model')->getUser($_SESSION['email_user']);
         $data['title'] = "Profile";
         $data['locate'] = $this->model('Client_model')->getLokasi();
+        $data['motor'] = $this->model('Motor_model')->getNamaMotorById($id);
         $this->view('templates/header2',$data);
         $this->view('profile/index',$data);
         $this->view('templates/footer');
