@@ -69,40 +69,40 @@
         public function tambah()
         {
             //echo $_POST['foto_motor'];
-            //var_dump($_POST);
+            var_dump($_FILES['foto_motor']);
             if($this->model('Motor_model')->tambahDataMotor($_POST) > 0){
                
                 echo 'cek';
-                header('Location: '.BASEURL.'/motor');
+                //header('Location: '.BASEURL.'/motor');
             }else{
                 echo "Tambah data gagal";
             }
 
-            if($_POST){
-                $file = $_FILES['foto_motor'];
-                $file_name = $_FILES['foto_motor']['name'];
-                $fileTmpName = $_FILES['foto_motor']['tmp_name'];
-                $fileSize = $_FILES['foto_motor']['size'];
-                $fileError = $_FILES['foto_motor']['error'];
-                $fileType = $_FILES['foto_motor']['type'];
+            // if($_POST){
+            //     $file = $_FILES['foto_motor'];
+            //     $file_name = $_FILES['foto_motor']['name'];
+            //     $fileTmpName = $_FILES['foto_motor']['tmp_name'];
+            //     $fileSize = $_FILES['foto_motor']['size'];
+            //     $fileError = $_FILES['foto_motor']['error'];
+            //     $fileType = $_FILES['foto_motor']['type'];
 
-                $fileExt = explode('.',$file_name);
-                $fileActExt = strtolower(end($fileExt));
+            //     $fileExt = explode('.',$file_name);
+            //     $fileActExt = strtolower(end($fileExt));
 
-                $allowed = array('jpg','png','jpeg');
-                if(in_array($fileActExt,$allowed)){
-                    if($fileError === 0){
-                        if($fileSize < 1000000){
-                            $file_name_new = uniqid('',true).".".$fileActExt;
-                            $fileDestination = BASEURL.'/img/'.$file_name_new;
-                            move_uploaded_file($fileTmpName,$fileDestination);
-                            echo $file_name_new;
-                        }
-                    }
-                }   
-            }else{
-                echo "idc";
-            }
+            //     $allowed = array('jpg','png','jpeg');
+            //     if(in_array($fileActExt,$allowed)){
+            //         if($fileError === 0){
+            //             if($fileSize < 1000000){
+            //                 $file_name_new = uniqid('',true).".".$fileActExt;
+            //                 $fileDestination = BASEURL.'/img/motorUpload'.$file_name_new;
+            //                 move_uploaded_file($fileTmpName,$fileDestination);
+            //                 echo $file_name_new;
+            //             }
+            //         }
+            //     }   
+            // }else{
+            //     echo "idc";
+            // }
 
             
         }

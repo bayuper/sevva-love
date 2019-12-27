@@ -12,13 +12,13 @@
 
 ?>
 <main class="my-form">
-    <div class="cotainer">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">Upload your Motor details</div>
                         <div class="card-body">
-                            <form name="my-form" onsubmit="return validform()" action="<?=BASEURL;?>/motor/tambah" method="POST" >
+                            <form name="my-form" onsubmit="return validform()" action="<?=BASEURL;?>/motor/tambah" method="POST">
                                  
                                 <div class="form-group row">
                                     <!-- <label for="full_name" class="col-md-4 col-form-label text-md-right">User ID</label> -->
