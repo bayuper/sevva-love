@@ -38,7 +38,11 @@
                                               <?php endforeach;?>
                                             </select>
                         </div>
+
+                        
+                        
                         <div class="form-group inline col-md-3"> 
+                        
                             <button type="submit" class="btn btn-primary center col-md-12">Search</button>
                        
                         <!-- <label for="price" class="mx-auto">Price</label>
@@ -71,8 +75,7 @@
                     <p class="card-text"><?= "Type   : ".$mtr['nama_tipe']?></p>
                     <p class="card-text"><?= "Brand  : ".$mtr['nama_brand']?></p>
                     <hr />
-                    <a href="#" class="btn btn-primary" style="width: 100px;">Details</a>
-                    <a href="#" class="btn btn-warning" style="width: 100px;">Book</a>
+                    <a href="<?=BASEURL;?>/login" class="btn btn-primary">Sign in to continue</a>
                 </div>
             </div>
         <?php endforeach; ?>

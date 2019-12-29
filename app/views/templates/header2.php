@@ -30,7 +30,7 @@
                 <div class="navbar-nav mr-1">
                     <a class="nav-item nav-link" href="<?=BASEURL?>">Home</a>
                     <a class="nav-item nav-link" href="#">About Us</a>
-                    <a class="nav-item nav-link" href="<?=BASEURL?>/motor">Motorbikes</a>
+                    <a class="nav-item nav-link" href="<?=BASEURL?>/motor/<?=$data['id_client']?>">Motorbikes</a>
                     <a class="nav-item nav-link" href="#">Contact Us</a>
                 </div>
             </div>

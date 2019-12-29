@@ -37,7 +37,8 @@
                                               <?php endforeach;?>
                                             </select>
                         </div>
-                        <div class="form-group inline col-md-3"> 
+                        <input type="hidden" name="id" id="id" value="<?=$data['id_client']?>">
+                        <div class="form-group inline col-md-3">
                             <button type="submit" class="btn btn-primary center col-md-6">Search</button>
                         </div>   
                     </div>

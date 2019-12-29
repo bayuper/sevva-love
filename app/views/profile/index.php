@@ -1,3 +1,10 @@
+<?php 
+    //$i = 0;
+    for($i = 0; $i < count($data['motor']); $i++){
+    //echo $i;
+    
+    }
+?>
 <div class="container mt-5">
         <nav>
             <ol class="breadcrumb bg-transparent pl-0">
@@ -12,7 +19,7 @@
                 <div class="col-md-4 mt-5">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkVwgO2BQyt8C5fk2VcxWRKyiLS31NaXwK_gtjHJbdy-Nsr687" class="card-img" style="max-width:300px;" alt="...">
                     <a href="<?=BASEURL?>/login/logout"><button type="submit" class="btn btn-danger center col-md-12 mt-4">Sign Out</button></a>
-                    <button type="submit" class="btn btn-warning center col-md-12 mt-2 mb-5">Delete Account</button>
+                    
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -188,13 +195,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        
                                         <?php foreach($data['motor'] as $mtr => $value):?> 
                                             <tr>
                                                 <th scope="row"><?=++$mtr?></th>
                                                 <td><?=$value['nama']?></td>
                                                 <td>
-                                                    <a href="#" class="btn btn-xs btn-success">Update</a>
-                                                    <a href="#" class="btn btn-xs btn-danger">Delete</a>
+                                                    <a href="#" class="btn btn-xs btn-success modalUbah" data-toggle="modal" data-target="#updateMotor" data-id="<?=$value['id_motor']?>">Update</a>
+                                                    <a href="<?=BASEURL?>/motor/delete/<?=$value['id_motor']?>" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
                                                 </td> 
                                             </tr>
                                         <?php endforeach;?>   
@@ -202,6 +210,101 @@
                                     </table>
                                 </div>
                             </div>
+
+                            <!-- modal update motor -->
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Launch demo modal
+                                </button> -->
+
+                                <div class="modal fade" id="updateMotor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="formModalLabel">Update Motor</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="<?=BASEURL?>/motor/update" method="POST">
+                                            <div class="form-group row">
+                                                <!-- <label for="full_name" class="col-md-4 col-form-label text-md-right">ID</label> -->
+                                                <div class="col-md-6">
+                                                    <input type="hidden" id="id" class="form-control" name="id">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="full_name" class="col-md-4 col-form-label text-md-right">Title</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="title" class="form-control" name="title" placeholder="Enter your motor name">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="city" class="col-md-4 col-form-label text-md-right">Brand</label>
+                                                <div class="col-md-6">
+                                                    <select class="form-control" id="brand" name="brand">
+                                                        <?php foreach($data['brand'] as $row): ?> 
+                                                        <option value="<?= $row['id_brand']?>"> 
+                                                        <?= $row['nama_brand']; ?> 
+                                                        </option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="city" class="col-md-4 col-form-label text-md-right">Type</label>
+                                                <div class="col-md-6">
+                                                    <select class="form-control" id="type" name="tipe">
+                                                        <?php foreach($data['tipe'] as $row): ?> 
+                                                        <option value="<?= $row['id_tipe']?>"> 
+                                                        <?= $row['nama_tipe']; ?> 
+                                                        </option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
+                                                <div class="col-md-6">
+                                                    <select class="form-control" id="city" name="city">
+                                                        <?php foreach($data['locate'] as $row): ?> 
+                                                        <option value="<?= $row['id_kota']?>"> 
+                                                        <?= $row['nama_kota']; ?> 
+                                                        </option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="full_name" class="col-md-4 col-form-label text-md-right">Price</label>
+                                                <div class="col-md-6">
+                                                    <input type="number" id="price" class="form-control" name="harga" placeholder="Price per Day in Rp">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group row">
+                                                <label for="full_name" class="col-md-4 col-form-label text-md-right">Description</label>
+                                                <div class="col-md-6">
+                                                    <textarea type="text" id="desc" class="form-control" rows="3" name="desc" placeholder="Enter your motor description"></textarea>
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-success">Update</button>
+                                    </div>
+                                    </form>
+                                    </div>
+                                </div>
+                                </div>
+
+                            <!-- end of modal update motor -->
                             <div class="tab-pane fade product-review" id="rentstatus" role="tabpanel" aria-labelledby="rent-tab">
                                 <div class="row">
                                     <table class="table table-striped table-light">

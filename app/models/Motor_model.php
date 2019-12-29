@@ -17,6 +17,12 @@ class Motor_model{
         return $this->db->resultSet();
     }
 
+    public function getAllMotorById($id){
+        $this->db->query('select M.id_motor,M.nama,M.harga,L.nama_kota,T.nama_tipe,B.nama_brand from motor M join brand B on M.id_brand = B.id_brand JOIN lokasi L on M.id_kota = L.id_kota join tipe T on M.id_tipe = T.id_tipe where status = 0 and id_client != :id');
+        $this->db->bind('id',$id);
+        return $this->db->resultSet();
+    }
+
     public function getAllMotor(){
         $this->db->query('select M.id_motor,M.nama,M.harga,L.nama_kota,T.nama_tipe,B.nama_brand from motor M join brand B on M.id_brand = B.id_brand JOIN lokasi L on M.id_kota = L.id_kota join tipe T on M.id_tipe = T.id_tipe where status = 0');
         return $this->db->resultSet();
@@ -24,8 +30,8 @@ class Motor_model{
 
     public function getFindMotor($data){
 
-        $this->db->query("select M.id_motor,M.nama,M.harga,L.nama_kota,T.nama_tipe,B.nama_brand from motor M join brand B on M.id_brand = B.id_brand JOIN lokasi L on M.id_kota = L.id_kota join tipe T on M.id_tipe = T.id_tipe 
-                          where L.id_kota = :id_kota and T.id_tipe = :id_tipe and B.id_brand = :id_brand and status = 0");
+        $this->db->query('select M.id_motor,M.nama,M.harga,L.nama_kota,T.nama_tipe,B.nama_brand from motor M join brand B on M.id_brand = B.id_brand JOIN lokasi L on M.id_kota = L.id_kota join tipe T on M.id_tipe = T.id_tipe 
+                          where L.id_kota = :id_kota and T.id_tipe = :id_tipe and B.id_brand = :id_brand and status = 0 and id_client != :id');
 
         // $this->db->query("select * from motor where id_kota = :id_kota and id_tipe 
         //                 = :id_tipe and id_brand = :id_brand");
@@ -33,6 +39,7 @@ class Motor_model{
         $this->db->bind('id_kota',$data['location']);
         $this->db->bind('id_tipe',$data['tipe']);
         $this->db->bind('id_brand',$data['brand']);
+        $this->db->bind('id',$data['id']);
 
         $this->db->execute();
         return $this->db->resultSet();
@@ -124,6 +131,37 @@ class Motor_model{
         $this->db->query('select M.id_motor,M.nama,M.status,O.tgl_kembali from motor M join orders O on M.id_motor = O.id_motor where O.id_client = :id and M.status = 1 LIMIT 1');
         $this->db->bind('id',$id);
         return $this->db->resultSet();
+    }
+
+    public function updateDataMotor($data){
+        $this->db->query('UPDATE motor SET 
+                        nama = :nama,
+                        id_brand = :brand,
+                        id_tipe = :tipe,
+                        id_kota = :kota,
+                        harga = :harga,
+                        description = :desc
+                        where id_motor = :id');
+        
+        $this->db->bind('nama',$data['title']);
+        $this->db->bind('brand',$data['brand']);
+        $this->db->bind('tipe',$data['tipe']);
+        $this->db->bind('kota',$data['city']);
+        $this->db->bind('harga',$data['harga']);
+        $this->db->bind('desc',$data['desc']);
+        $this->db->bind('id',$data['id']);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function deleteDataMotor($id){
+        $this->db->query('DELETE from motor where id_motor = :id');
+        $this->db->bind('id',$id);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+
     }
 
 }
