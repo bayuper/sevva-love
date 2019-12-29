@@ -7,6 +7,7 @@ class Profile extends Controller{
         $data['title'] = "Profile";
         $data['locate'] = $this->model('Client_model')->getLokasi();
         $data['motor'] = $this->model('Motor_model')->getNamaMotorById($id);
+        $data['rent'] = $this->model('Motor_model')->getRentedMotorById($id);
         $this->view('templates/header2',$data);
         $this->view('profile/index',$data);
         $this->view('templates/footer');
@@ -21,6 +22,14 @@ class Profile extends Controller{
         $this->view('profile/clientprofile',$data);
         $this->view('templates/footer');
 
+    }
+
+    public function updateRentStatus(){
+        session_start();
+        $data = $this->model('Login_model')->getUser($_SESSION['email_user']);
+        $this->model('Motor_model')->updateStatusReturnMotor($_POST);
+        header('Location: '.BASEURL.'/profile/'.$data['id_client']);
+        var_dump($_POST);
     }
 }
 

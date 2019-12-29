@@ -25,6 +25,10 @@ function validform() {
 
 }
 
+function totalPayment() {
+    var orderDate = document.forms[""];
+}
+
 // form upload foto ktp
 $(".custom-file-input").on("change", function() {
     var fileName = $(this).val().split("\\").pop();
