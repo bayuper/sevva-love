@@ -7,6 +7,7 @@ class Profile extends Controller{
         $data['title'] = "Profile";
         $data['locate'] = $this->model('Client_model')->getLokasi();
         $data['motor'] = $this->model('Motor_model')->getNamaMotorById($id);
+        $data['motoraku'] = $this->model('Motor_model')->getMotorById($id);
         $this->view('templates/header2',$data);
         $this->view('profile/index',$data);
         $this->view('templates/footer');

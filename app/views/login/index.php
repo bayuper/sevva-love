@@ -2,7 +2,7 @@
    //session_start();
     if($data['status'] === false){
         echo "<script>
-        alert('Login Failrure, Please Try Again')
+        alert('Login Failure, Please Try Again')
         </script>";
     }
 ?>
@@ -15,32 +15,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= BASEURL;?>/css/bootstrap.css">
-    <link rel="stylesheet" href="<?=BASEURL;?>/css/main.css">
+    <!-- <link rel="stylesheet" href="<?= BASEURL;?>/css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" href="<?=BASEURL;?>/css/main.css"> -->
+    <link rel="stylesheet" href="<?= BASEURL;?>/css/login.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>SEVVA.ID | <?= $data['title'] ?></title>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="<?=BASEURL;?>" width="30" height="30" class="d-inline-block align-top" alt=""> SEVVA.ID
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav mr-1">
-                    <a class="nav-item nav-link" href="<?=BASEURL;?>">Home</a>
-                    <a class="nav-item nav-link" href="#">About Us</a>
-                    <a class="nav-item nav-link" href="#">Motorbikes</a>
-                    <a class="nav-item nav-link" href="#">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-<br><br>
-<div class="container">
+
+<!-- <div class="container">
     <h1>Login into Sevva Account</h1>
     <form method="POST" action="<?=BASEURL;?>/login/cekUser">
   <div class="form-group">
@@ -56,4 +41,80 @@
   <br><br>
   <p>or <a href="<?=BASEURL;?>/register/index">Sign Up</a></p>
 </form>
+</div> -->
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<section class="login-block">
+    <div class="container" id="back">
+	<div class="row">
+		<div class="col-md-4 login-sec">
+            <h2 class="text-center">Login Now</h2>
+            <form method="POST" action="<?=BASEURL;?>/login/cekUser">
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+    <input type="text" class="form-control" placeholder="email" name="email">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+    <input type="password" class="form-control" placeholder="password" name="password">
+  </div>
+  
+  
+    <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input">
+      <small>Remember Me</small>
+    </label>
+    <button type="submit" class="btn btn-login float-right">Submit</button>
+  </div>
+
+  <p class="text-muted mt-4">Don't have an Account ? Please <a href="<?=BASEURL;?>/register/index">Sign Up</a></p>
+</form>
+<div class="copy-text">Created with <i class="fa fa-heart"></i> by Sevva Dev Team</div>
+		</div>
+		<div class="col-md-8 banner-sec">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                 <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+            <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>This is Heaven</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+        </div>	
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>This is Heaven</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+        </div>	
+    </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>This is Heaven</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+        </div>	
+    </div>
+  </div>
+            </div>	   
+		    
+		</div>
+    </div>
 </div>
+</section>

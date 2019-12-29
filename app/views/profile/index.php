@@ -193,7 +193,7 @@
                                                 <th scope="row"><?=++$mtr?></th>
                                                 <td><?=$value['nama']?></td>
                                                 <td>
-                                                    <a href="#" class="btn btn-xs btn-success">Update</a>
+                                                    <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#updateMotor">Update</button>
                                                     <a href="#" class="btn btn-xs btn-danger">Delete</a>
                                                 </td> 
                                             </tr>
@@ -234,3 +234,141 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="updateMotor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Update Motor</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        <form name="my-form" onsubmit="return validform()" action="<?=BASEURL;?>/motor/tambah" method="POST">
+                                 
+                                 <div class="form-group row">
+                                     <!-- <label for="full_name" class="col-md-4 col-form-label text-md-right">User ID</label> -->
+                                     <div class="col-md-6">
+                                         <input type="text" id="full_name" class="form-control" name="id" value="<?=$data['motoraku']['id_motor'] ?>" readonly>
+                                     </div>
+                                 </div>
+                             
+                                 <div class="form-group row">
+                                     <!-- <label for="full_name" class="col-md-4 col-form-label text-md-right">User ID</label> -->
+                                     <div class="col-md-6">
+                                         <input type="hidden" id="full_name" class="form-control" name="id_client" value="<?= $data['id_client'] ?>" readonly>
+                                     </div>
+                                 </div>
+ 
+         
+                                 <div class="form-group row">
+                                     <label for="full_name" class="col-md-4 col-form-label text-md-right">Title</label>
+                                     <div class="col-md-6">
+                                         <input type="text" id="full_name" class="form-control" name="title" placeholder="" value="<?= $data['motoraku']['nama'] ?>">
+                                     </div>
+                                 </div>
+ 
+                                 <div class="form-group row">
+                                     <label for="city" class="col-md-4 col-form-label text-md-right">Brand</label>
+                                     <div class="col-md-6">
+                                         <select class="form-control" id="exampleFormControlSelect1" name="brand">
+                                             <?php foreach($data['brand'] as $row): ?> 
+                                             <option value="<?= $row['id_brand']?>"> 
+                                             <?= $row['nama_brand']; ?> 
+                                             </option>
+                                             <?php endforeach;?>
+                                         </select>
+                                     </div>
+                                 </div>
+ 
+                                 <div class="form-group row">
+                                     <label for="city" class="col-md-4 col-form-label text-md-right">Type</label>
+                                     <div class="col-md-6">
+                                         <select class="form-control" id="exampleFormControlSelect1" name="tipe">
+                                             <?php foreach($data['tipe'] as $row): ?> 
+                                             <option value="<?= $row['id_tipe']?>"> 
+                                             <?= $row['nama_tipe']; ?> 
+                                             </option>
+                                             <?php endforeach;?>
+                                         </select>
+                                     </div>
+                                 </div>
+ 
+                                 <div class="form-group row">
+                                     <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
+                                     <div class="col-md-6">
+                                         <select class="form-control" id="exampleFormControlSelect1" name="city">
+                                             <?php foreach($data['locate'] as $row): ?> 
+                                             <option value="<?= $row['id_kota']?>"> 
+                                             <?= $row['nama_kota']; ?> 
+                                             </option>
+                                             <?php endforeach;?>
+                                         </select>
+                                     </div>
+                                 </div>
+ 
+                                 <div class="form-group row">
+                                     <label for="full_name" class="col-md-4 col-form-label text-md-right">Price</label>
+                                     <div class="col-md-6">
+                                         <input type="number" id="full_name" class="form-control" name="harga" placeholder="Price per Day in Rp" value="<?= $data['motor']['harga'] ?>">
+                                     </div>
+                                 </div>
+ 
+                                 <div class="form-group row">
+                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Motor Photo</label>
+                                     <div class="col-md-6">
+                                         <div class="custom-file">
+                                             <input type="file" class="custom-file-input" id="customFile" name="foto_motor">
+                                             <label class="custom-file-label" for="customFile">Choose file</label>
+                                         </div>
+                                     </div>
+                                 </div>
+ 
+                                 <div class="form-group row">
+                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right">BPKB Photo</label>
+                                     <div class="col-md-6">
+                                         <div class="custom-file">
+                                             <input type="file" class="custom-file-input" id="customFile" name="foto_bpkb">
+                                             <label class="custom-file-label" for="customFile">Choose file</label>
+                                         </div>
+                                     </div>
+                                 </div>
+ 
+                                 <div class="form-group row">
+                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right">STNK Photo</label>
+                                     <div class="col-md-6">
+                                         <div class="custom-file">
+                                             <input type="file" class="custom-file-input" id="customFile" name="foto_stnk">
+                                             <label class="custom-file-label" for="customFile">Choose file</label>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="form-group row">
+                                     <label for="full_name" class="col-md-4 col-form-label text-md-right">Description</label>
+                                     <div class="col-md-6">
+                                         <textarea type="text" id="full_name" class="form-control" rows="3" name="desc" placeholder="Enter your motor description"></textarea>
+                                     </div>
+                                 </div>
+                                 
+                                     <div class="col-md-6 offset-md-4">
+                                         <button type="submit" class="btn btn-primary" name="submit">
+                                         Submit
+                                         </button>
+                                         <br><br>
+                                         <p>Or<a href="<?=BASEURL;?>/login/index"> Cancel</a></p>
+                                     </div>
+                                 </div>
+                             </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Update Motor</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>

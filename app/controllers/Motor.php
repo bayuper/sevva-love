@@ -110,12 +110,22 @@
         public function detail($id){
             session_start();
             $data =  $this->model('Login_model')->getUser($_SESSION['email_user']);
-            $data['title'] = "Detai Motor";
+            $data['title'] = "Detail Motor";
             $data['motor'] = $this->model('Motor_model')->getMotorById($id);
             $data['client'] = $this->model('Motor_model')->getNamaClientById($id);
             $this->view('templates/header2', $data);
             $this->view('motor/detail', $data);
             $this->view('templates/footer');
+        }
+
+        public function updateMotor($id){
+            if($this->model('Motor_model')->updateDataMotor($_POST) > 0){
+               
+                echo 'cek';
+                header('Location: '.BASEURL.'/profile');
+            }else{
+                echo "Tambah data gagal";
+            }
         }
     }
 

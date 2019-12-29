@@ -85,5 +85,9 @@ class Motor_model{
         return $this->db->resultSet();
     }
 
+    public function updateDataMotor($id){
+        $this->db->query("UPDATE motor SET nama = :nama,  ");
+    }
+
 }
 ?>

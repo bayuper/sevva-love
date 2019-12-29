@@ -4,8 +4,9 @@ class Login extends Controller{
     public function index(){
         $data['status'] = true;
         $data['title'] = 'Login';
+        $this->view('templates/header');
         $this->view('login/index', $data);
-        $this->view('templates/footer');
+       
     }
 
     public function cekUser(){

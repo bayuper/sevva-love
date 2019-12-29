@@ -28,6 +28,12 @@ class Home extends Controller{
         }
         
     }
+    public function clientadmin(){
+        $data['title'] = "Client";
+        $this->view('templates/headeradmin',$data);
+        $this->view('admin/clientadmin',$data);
+    }
+
 }
 
 ?>
