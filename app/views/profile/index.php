@@ -207,22 +207,29 @@
                                     <table class="table table-striped table-light">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Name</th>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Motor</th>
                                                 <th scope="col">Status</th>
+                                                <th scope="col">Return Date</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                       
+                                        <?php foreach($data['rent'] as $mtr => $value):?> 
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
+                                                <th scope="row"><?=++$mtr?></th>
+                                                <td><?=$value['nama']?></td>
+                                                <td><?=$value['status']?></td>
+                                                <td><?=$value['tgl_kembali']?></td>
                                                 <td>
-                                                    <a href="#" class="btn btn-xs btn-success">Update</a>
-                                                    <a href="#" class="btn btn-xs btn-danger">Delete</a>
+                                                    <form action="<?=BASEURL?>/profile/updateRentStatus/<?=$value['id_motor']?>" method="POST">
+                                                        <input type="hidden" name="id_motor" value="<?=$value['id_motor']?>">
+                                                        <a href="#"><button class="btn btn-xs btn-success" type="submit">Return</button></a>
+                                                    </form>
                                                 </td>
                                             </tr>
+                                        <?php endforeach;?>   
                                         </tbody>
                                     </table>
                                 </div>

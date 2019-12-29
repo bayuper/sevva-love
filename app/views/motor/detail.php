@@ -31,7 +31,7 @@
                     </p>
 
                     <div class="btn-product">
-                        <a href="" class="btn btn-warning text-white col-md-5 ">Book</a>
+                        <a href="<?=BASEURL?>/order/index/<?=$data['motor']['id_motor']?>" class="btn btn-warning text-white col-md-5 ">Book</a>
                     </div>
                     <hr />
 

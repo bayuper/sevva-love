@@ -69,10 +69,12 @@
         public function tambah()
         {
             //echo $_POST['foto_motor'];
-            //var_dump($_FILES['foto_motor']);
+            // $file = $_FILES['foto_motor']['tmp_name'];
+            // var_dump($file);
+            
             if($this->model('Motor_model')->tambahDataMotor($_POST) > 0){
                
-                echo 'cek';
+                //echo 'cek';
                 header('Location: '.BASEURL.'/motor');
             }else{
                 echo "Tambah data gagal";
@@ -110,7 +112,7 @@
         public function detail($id){
             session_start();
             $data =  $this->model('Login_model')->getUser($_SESSION['email_user']);
-            $data['title'] = "Detai Motor";
+            $data['title'] = "Detail Motor";
             $data['motor'] = $this->model('Motor_model')->getMotorById($id);
             $data['client'] = $this->model('Motor_model')->getNamaClientById($id);
             $this->view('templates/header2', $data);
