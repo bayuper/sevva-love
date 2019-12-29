@@ -1,7 +1,7 @@
 <?php 
     
     class Motor extends Controller{
-        public function index()
+        public function index($id)
         {
             // $data = $this->model('Client_model')->getAllClient();
             session_start();
@@ -10,7 +10,7 @@
                 $data['locate'] = $this->model('Client_model')->getLokasi();
                 $data['brand']= $this->model('Motor_model')->getBrand();
                 $data['tipe']= $this->model('Motor_model')->getTipe();
-                $data['motor'] = $this->model('Motor_model')->getAllMotor();
+                $data['motor'] = $this->model('Motor_model')->getAllMotorById($id);
                 $data['title'] = 'Motorbikes';
                 $this->view('templates/header2', $data);
                 $this->view('motor/index', $data);
@@ -71,11 +71,12 @@
             //echo $_POST['foto_motor'];
             // $file = $_FILES['foto_motor']['tmp_name'];
             // var_dump($file);
-            
+            session_start();
+            $data =  $this->model('Login_model')->getUser($_SESSION['email_user']);
             if($this->model('Motor_model')->tambahDataMotor($_POST) > 0){
                
                 //echo 'cek';
-                header('Location: '.BASEURL.'/motor');
+                header('Location: '.BASEURL.'/motor/'.$data['id_client']);
             }else{
                 echo "Tambah data gagal";
             }
@@ -118,6 +119,34 @@
             $this->view('templates/header2', $data);
             $this->view('motor/detail', $data);
             $this->view('templates/footer');
+        }
+
+        public function getUbah(){
+            echo json_encode($this->model('Motor_model')->getMotorById($_POST['id']));
+        }
+
+        public function update(){
+            session_start();
+            $data = $this->model('Login_model')->getUser($_SESSION['email_user']);
+            if($this->model('Motor_model')->updateDataMotor($_POST) > 0){
+               
+                //echo 'cek';
+                header('Location: '.BASEURL.'/profile/'.$data['id_client']);
+            }else{
+                echo "update data gagal";
+            }
+        }
+
+        public function delete($id){
+            session_start();
+            $data = $this->model('Login_model')->getUser($_SESSION['email_user']);
+            if($this->model('Motor_model')->deleteDataMotor($id) > 0){
+               
+                //echo 'cek';
+                header('Location: '.BASEURL.'/profile/'.$data['id_client']);
+            }else{
+                echo "update data gagal";
+            }
         }
     }
 

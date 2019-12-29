@@ -75,6 +75,12 @@ class Client_model{
         $this->db->bind('id',$id);
         return $this->db->resultSet();
     }
+
+    public function deleteAccount($id){
+        $this->db->query('delete from client where id_client = :id');
+        $this->db->bind('id',$id);
+        $this->db->execute();
+    }
 }
 
 ?>
