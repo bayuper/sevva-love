@@ -46,6 +46,23 @@ class Motor_model{
         
     }
 
+    public function getFindMotorNoLogin($data){
+
+        $this->db->query('select M.id_motor,M.nama,M.harga,L.nama_kota,T.nama_tipe,B.nama_brand from motor M join brand B on M.id_brand = B.id_brand JOIN lokasi L on M.id_kota = L.id_kota join tipe T on M.id_tipe = T.id_tipe 
+                          where L.id_kota = :id_kota and T.id_tipe = :id_tipe and B.id_brand = :id_brand and status = 0');
+
+        // $this->db->query("select * from motor where id_kota = :id_kota and id_tipe 
+        //                 = :id_tipe and id_brand = :id_brand");
+
+        $this->db->bind('id_kota',$data['location']);
+        $this->db->bind('id_tipe',$data['tipe']);
+        $this->db->bind('id_brand',$data['brand']);
+
+        $this->db->execute();
+        return $this->db->resultSet();
+        
+    }
+
     public function getNewIdMotor(){
         $data = $this->db->query('SELECT max(id_motor) as max from motor');
         return $this->db->resultSet();

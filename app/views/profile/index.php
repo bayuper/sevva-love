@@ -183,7 +183,7 @@
                             </div>
                             </div>
                         <!-- end update modal -->
-
+                            
                             <div class="tab-pane fade product-review" id="motorbike" role="tabpanel" aria-labelledby="review-tab">
                                 <div class="row">
                                     <table class="table table-striped table-light">
@@ -191,15 +191,25 @@
                                             <tr>
                                                 <th scope="col">No</th>
                                                 <th scope="col">Motor</th>
+                                                <th scope="col">Status</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         
                                         <?php foreach($data['motor'] as $mtr => $value):?> 
+                                            <?php 
+                                                $status = $value['status'];
+                                                if($status == 1){
+                                                    $status = 'Rented';
+                                                }else{
+                                                    $status = 'Not Rented';
+                                                }
+                                            ?>
                                             <tr>
                                                 <th scope="row"><?=++$mtr?></th>
                                                 <td><?=$value['nama']?></td>
+                                                <td><?=$status?></td>
                                                 <td>
                                                     <a href="#" class="btn btn-xs btn-success modalUbah" data-toggle="modal" data-target="#updateMotor" data-id="<?=$value['id_motor']?>">Update</a>
                                                     <a href="<?=BASEURL?>/motor/delete/<?=$value['id_motor']?>" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
@@ -312,7 +322,6 @@
                                             <tr>
                                                 <th scope="col">No</th>
                                                 <th scope="col">Motor</th>
-                                                <th scope="col">Status</th>
                                                 <th scope="col">Return Date</th>
                                                 <th scope="col">Action</th>
                                             </tr>
@@ -323,7 +332,6 @@
                                             <tr>
                                                 <th scope="row"><?=++$mtr?></th>
                                                 <td><?=$value['nama']?></td>
-                                                <td><?=$value['status']?></td>
                                                 <td><?=$value['tgl_kembali']?></td>
                                                 <td>
                                                     <form action="<?=BASEURL?>/profile/updateRentStatus/<?=$value['id_motor']?>" method="POST">

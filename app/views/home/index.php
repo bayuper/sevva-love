@@ -63,6 +63,8 @@
 
     <h2 class="text-center mt-5">Our Motors</h2>
         <br><br>
+        <div class="container">
+            
         <div class="card-columns ml-5">
         <?php foreach($data['motor'] as $mtr): ?>
                 <div class="card" style="width: 18rem;">
@@ -79,5 +81,6 @@
                 </div>
             </div>
         <?php endforeach; ?>
+        </div>
 </div>
 </div>

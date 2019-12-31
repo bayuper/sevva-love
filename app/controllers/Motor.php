@@ -45,7 +45,7 @@
             $data['locate'] = $this->model('Client_model')->getLokasi();
             $data['brand']= $this->model('Motor_model')->getBrand();
             $data['tipe']= $this->model('Motor_model')->getTipe();
-            $data['motor'] = $this->model('Motor_model')->getFindMotor($_POST);
+            $data['motor'] = $this->model('Motor_model')->getFindMotorNoLogin($_POST);
             //$data['motor'] = $this->model('Motor_model')->getAllMotor();
             $this->view('templates/header', $data);
             $this->view('motor/index', $data);
